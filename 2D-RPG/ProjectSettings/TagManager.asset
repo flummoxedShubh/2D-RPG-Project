@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pickable
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - 
   - 
   - Blocking
-  - 
-  - 
+  - Consumables
+  - Enemies
   - 
   - 
   - 
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Rocks
     uniqueID: 4270874941
+    locked: 0
+  - name: Items
+    uniqueID: 909802183
     locked: 0
   - name: Characters
     uniqueID: 3442935307
