@@ -12,7 +12,27 @@ public class Player : Character
         if(hitObject != null)
         {
             print("Hit: " + hitObject.objectName);
+
+            switch (hitObject.itemType)
+            {
+                case Item.ItemType.COIN:
+                    break;
+
+                case Item.ItemType.HEALTH:
+                    AdjustHitPoints(hitObject.quantity);
+                    break;
+
+                default:
+                    break;
+            }
+
             collision.gameObject.SetActive(false);
         }
     }
+    public void AdjustHitPoints(int amount)
+    {
+        hitPoints += amount;
+        print("Adjusted HitPoints by: " + amount + ". New value: " + hitPoints);
+    }
 }
+
