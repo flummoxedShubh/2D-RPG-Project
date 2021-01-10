@@ -7,27 +7,34 @@ public class Player : Character
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Item hitObject = collision.gameObject.GetComponent<Consumable>().item;
+        Consumable consumableObject = collision.gameObject.GetComponent<Consumable>();
 
-        if(hitObject != null)
+        if(consumableObject != null)
         {
-            print("Hit: " + hitObject.objectName);
+            Item hitObject = consumableObject.item;
 
-            switch (hitObject.itemType)
+            if (hitObject != null)
             {
-                case Item.ItemType.COIN:
-                    break;
+                print("Hit: " + hitObject.objectName);
 
-                case Item.ItemType.HEALTH:
-                    AdjustHitPoints(hitObject.quantity);
-                    break;
+                switch (hitObject.itemType)
+                {
+                    case Item.ItemType.COIN:
+                        break;
 
-                default:
-                    break;
+                    case Item.ItemType.HEALTH:
+                        AdjustHitPoints(hitObject.quantity);
+                        break;
+
+                    default:
+                        break;
+                }
+
+                collision.gameObject.SetActive(false);
             }
 
-            collision.gameObject.SetActive(false);
         }
+
     }
     public void AdjustHitPoints(int amount)
     {
